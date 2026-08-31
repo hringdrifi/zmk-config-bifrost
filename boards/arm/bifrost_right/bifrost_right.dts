@@ -1,6 +1,7 @@
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
 
 / {
     model = "Bifrost right";
@@ -77,7 +78,7 @@
     pinctrl-0 = <&smidr_pmw3610_spi0_default>;
     pinctrl-names = "default";
     cs-gpios = <&gpio0 5 GPIO_ACTIVE_LOW /* Trackball 0 CS: P0.05 */>;
-    trackball_0: pmw3610_0 {
+    trackball_0: pmw3610@0 {
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
@@ -112,6 +113,14 @@
     status = "okay";
 };
 
+&gpiote {
+    status = "okay";
+};
+
+zephyr_udc0: &usbd {
+    status = "okay";
+};
+
 &flash0 {
     partitions {
         compatible = "fixed-partitions";
@@ -129,4 +138,3 @@
         };
     };
 };
-
