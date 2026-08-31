@@ -76,7 +76,7 @@
     pinctrl-0 = <&smidr_pmw3610_spi0_default>;
     pinctrl-names = "default";
     cs-gpios = <&gpio0 5 GPIO_ACTIVE_LOW /* Trackball 0 CS: P0.05 */>;
-    trackball_0: pmw3610_0 {
+    trackball_0: pmw3610_0@0 {
         compatible = "pixart,pmw3610-alt";
         reg = <0>;
         spi-max-frequency = <2000000>;
