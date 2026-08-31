@@ -44,3 +44,8 @@ include:
 Both custom board DTS files define the full matrix transform. The right board
 applies `col-offset = <24>` so local right-side matrix events map into the right
 side of the shared transform.
+
+## License
+
+This repository's original content is licensed under the [MIT License](LICENSE).
+Copyright (c) 2026 hringdrifi.

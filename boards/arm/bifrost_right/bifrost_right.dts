@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2026 hringdrifi
+ * SPDX-License-Identifier: MIT
+ */
+
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
 #include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
@@ -153,4 +158,3 @@ zephyr_udc0: &usbd {
         };
     };
 };
-

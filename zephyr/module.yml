@@ -1,3 +1,6 @@
+# Copyright (c) 2026 hringdrifi
+# SPDX-License-Identifier: MIT
+
 name: zmk-keyboard-bifrost
 build:
   settings:

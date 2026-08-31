@@ -1,1 +1,6 @@
+/*
+ * Copyright (c) 2026 hringdrifi
+ * SPDX-License-Identifier: MIT
+ */
+
 #include "bifrost.keymap"
