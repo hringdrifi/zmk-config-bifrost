@@ -14,8 +14,8 @@ To build ZMK firmware using this configuration:
 3. Configure your GitHub Actions `build.yaml` file:
    ```yaml
    include:
-     - board: bifrost_left//zmk
-     - board: bifrost_right//zmk
+     - board: bifrost_left
+     - board: bifrost_right
    ```
 4. Push the changes to GitHub and download the compiled firmware binaries from the GitHub Actions tab.
 

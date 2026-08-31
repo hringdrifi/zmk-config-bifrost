@@ -73,10 +73,6 @@
     status = "okay";
 };
 
-&uart0 {
-    status = "disabled";
-};
-
 &flash0 {
     partitions {
         compatible = "fixed-partitions";
@@ -94,3 +90,4 @@
         };
     };
 };
+

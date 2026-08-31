@@ -3,5 +3,3 @@ board:
   vendor: hringbord
   socs:
     - name: nrf52840
-      variants:
-        - name: zmk
