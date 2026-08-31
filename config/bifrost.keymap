@@ -1,0 +1,62 @@
+/*
+ * Copyright (c) 2026 Hringbord
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/mouse.h>
+
+/ {
+
+
+
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        layer_0 {
+            bindings = <
+                &kp TAB &kp Q &kp W &kp E &kp R &kp U &kp I &kp O &kp P &kp SQT
+                &kp BSLH &kp T &kp Y &kp L &kp SEMI &kp RET &kp CLCK &kp A &kp S &kp D
+                &kp K &kp F &kp J &mo 1 &kp Z &kp G &kp H &kp DOT &kp FSLH &kp UP
+                &kp RSHIFT &kp X &kp C &kp M &kp COMMA &kp V &kp N &kp LEFT &kp DOWN &kp RIGHT
+                &kp LCTRL &kp LGUI &kp LALT &kp B &kp BSPC &kp SPACE &kp SPACE &kp DEL &kp ESC
+            >;
+        };
+
+        layer_1 {
+            bindings = <
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
+
+        layer_2 {
+            bindings = <
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
+    };
+};

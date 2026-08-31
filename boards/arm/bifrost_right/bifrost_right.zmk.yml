@@ -1,0 +1,6 @@
+file_format: "1"
+id: bifrost_right
+name: "Bifrost right"
+type: board
+features:
+  - keys

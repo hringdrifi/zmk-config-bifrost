@@ -1,0 +1,20 @@
+# Copyright (c) 2026 Hringbord
+# SPDX-License-Identifier: MIT
+
+if BOARD_BIFROST_RIGHT
+
+config BOARD
+    default "bifrost_right"
+
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_BLE
+    default y
+
+config ZMK_USB
+    default y
+
+
+endif
