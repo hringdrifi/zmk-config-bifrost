@@ -1,6 +1,7 @@
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 / {
     model = "Bifrost right";
@@ -80,6 +81,9 @@
         reg = <0>;
         irq-gpios = <&gpio0 26 (GPIO_ACTIVE_LOW | GPIO_PULL_UP) /* Trackball 0 MOTION: P0.26 */>;
         cpi = <1200>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
     };
 };
 
