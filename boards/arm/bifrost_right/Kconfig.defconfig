@@ -13,4 +13,6 @@ config ZMK_SPLIT
 config ZMK_BLE
     default y
 
+
+
 endif

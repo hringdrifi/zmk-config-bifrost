@@ -1,7 +1,7 @@
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
-#include <dt-bindings/zmk/matrix_transform.h>
 #include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
+#include <dt-bindings/zmk/matrix_transform.h>
 
 / {
     model = "Bifrost right";
@@ -63,6 +63,23 @@
 
 
 };
+/ {
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        trackball_split_0: trackball_split_0@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+    };
+
+    trackball_listener_0: trackball_listener_0 {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&trackball_split_0>;
+    };
+};
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &pinctrl {
@@ -91,18 +108,10 @@
     };
 };
 
-/ {
-    split_inputs {
-        #address-cells = <1>;
-        #size-cells = <0>;
-
-        trackball_split: trackball_split@0 {
-            compatible = "zmk,input-split";
-            reg = <0>;
-            device = <&trackball_0>;
-        };
-    };
+&trackball_split_0 {
+    device = <&trackball_0>;
 };
+
 
 
 &default_transform {
@@ -144,3 +153,4 @@ zephyr_udc0: &usbd {
         };
     };
 };
+
