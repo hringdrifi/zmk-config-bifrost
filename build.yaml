@@ -19,5 +19,5 @@
 #
 ---
 include:
-  - board: bifrost_left//zmk
-  - board: bifrost_right//zmk
+  - board: bifrost_left
+  - board: bifrost_right
