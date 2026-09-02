@@ -19,9 +19,10 @@
         zephyr,code-partition = &code_partition;
         zmk,kscan = &kscan0;
         zmk,physical-layout = &bifrost_physical_layout;
+        zmk,battery = &vbatt;
     };
 
-    battery {
+    vbatt: battery {
         compatible = "zmk,battery-nrf-vddh";
     };
 
@@ -91,6 +92,11 @@
 };
 
 &trackball_listener_0 {
+    status = "okay";
+};
+
+
+&adc {
     status = "okay";
 };
 
