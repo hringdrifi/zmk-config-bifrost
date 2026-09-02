@@ -7,6 +7,7 @@
 #include <nordic/nrf52840_qiaa.dtsi>
 #include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "../bifrost-layouts.dtsi"
 
 / {
     model = "Bifrost left";
@@ -17,7 +18,7 @@
         zephyr,flash = &flash0;
         zephyr,code-partition = &code_partition;
         zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &bifrost_physical_layout;
     };
 
     battery {

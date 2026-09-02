@@ -7,3 +7,4 @@ name: "Bifrost left"
 type: board
 features:
   - keys
+  - studio
