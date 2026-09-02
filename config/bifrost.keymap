@@ -9,7 +9,10 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
-#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
+
+#define LOWER 1
+#define RAISE 2
 
 / {
 
@@ -19,34 +22,45 @@
     keymap {
         compatible = "zmk,keymap";
 
+        /* Base: familiar QWERTY with dedicated shifts and thumb layers. */
         layer_0 {
+            display-name = "BASE";
+
             bindings = <
                 &kp TAB &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &kp SQT &kp BSLH
-                &kp CLCK &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SEMI &kp RET
-                &mo 1 &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp UP &kp RSHIFT
-                &kp LCTRL &kp LGUI &kp LALT &kp BSPC &kp SPACE &kp DEL &kp ESC &kp SPACE &kp LEFT &kp DOWN &kp RIGHT
+                &kp ESC &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SEMI &kp RET
+                &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp UP &kp RSHIFT
+                &kp LCTRL &kp LGUI &kp LALT &kp BSPC &kp SPACE &mo LOWER &mo RAISE &kp SPACE &kp LEFT &kp DOWN &kp RIGHT
             >;
         };
 
+        /* Lower: number row and symbols. Hold both thumb layer keys to unlock Studio. */
         layer_1 {
+            display-name = "LOWER";
+
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &studio_unlock &trans &trans &trans &trans
+                &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp LBKT &kp RBKT
+                &trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR &trans
+                &trans &kp GRAVE &kp TILDE &kp LBKT &kp RBKT &kp LBRC &kp RBRC &kp MINUS &kp EQUAL &kp UNDER &kp PLUS &kp PIPE &trans
+                &trans &trans &trans &kp DEL &trans &trans &studio_unlock &trans &kp HOME &kp PG_DN &kp END
             >;
         };
 
+        /* Raise: function, navigation/editing, and pointing-device controls. */
         layer_2 {
+            display-name = "RAISE";
+
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
+                &trans &kp HOME &kp PG_DN &kp PG_UP &kp END &kp INSERT &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp DEL &trans
+                &trans &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(A) &mkp LCLK &mkp MCLK &mkp RCLK &msc SCRL_DOWN &msc SCRL_UP &trans &trans
+                &trans &trans &trans &kp DEL &trans &studio_unlock &trans &trans &kp HOME &kp PG_DN &kp END
             >;
         };
 
         layer_3 {
+            display-name = "EXTRA";
+
             bindings = <
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans

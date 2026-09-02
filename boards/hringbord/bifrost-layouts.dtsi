@@ -30,7 +30,7 @@
             , <&key_physical_attrs 100 100  1249    2  (-344)  1299   52> /* 10: P */
             , <&key_physical_attrs 100 100  1350    0       0  1350    0> /* 11: QUOT */
             , <&key_physical_attrs 150 100  1450    0       0  1450    0> /* 12: BSLS */
-            , <&key_physical_attrs 175 100     0  100       0     0  100> /* 13: CAPS */
+            , <&key_physical_attrs 175 100     0  100       0     0  100> /* 13: ESC */
             , <&key_physical_attrs 100 100   176  101     250   226  151> /* 14: A */
             , <&key_physical_attrs 100 100   276  110     750   326  160> /* 15: S */
             , <&key_physical_attrs 100 100   376  128    1250   426  178> /* 16: D */
@@ -42,7 +42,7 @@
             , <&key_physical_attrs 100 100  1174  110  (-750)  1224  160> /* 22: L */
             , <&key_physical_attrs 100 100  1274  101  (-250)  1324  151> /* 23: SCLN */
             , <&key_physical_attrs 225 100  1375  100       0  1375  100> /* 24: ENT */
-            , <&key_physical_attrs 200 100     0  200       0     0  200> /* 25: MO(1) */
+            , <&key_physical_attrs 200 100     0  200       0     0  200> /* 25: LSFT */
             , <&key_physical_attrs 100 100   201  203     412   251  253> /* 26: Z */
             , <&key_physical_attrs 100 100   302  215     961   352  265> /* 27: X */
             , <&key_physical_attrs 100 100   401  237    1511   451  287> /* 28: C */
@@ -60,8 +60,8 @@
             , <&key_physical_attrs 125 100   253  310     843   316  360> /* 40: LALT */
             , <&key_physical_attrs 100 100   391  351    1632   441  401> /* 41: BSPC */
             , <&key_physical_attrs 100 100   488  385    2250   538  435> /* 42: SPC */
-            , <&key_physical_attrs 100 100   580  429    2868   630  479> /* 43: DEL */
-            , <&key_physical_attrs 100 100   870  429 (-2868)   920  479> /* 44: ESC */
+            , <&key_physical_attrs 100 100   580  429    2868   630  479> /* 43: LOWER */
+            , <&key_physical_attrs 100 100   870  429 (-2868)   920  479> /* 44: RAISE */
             , <&key_physical_attrs 100 100   962  385 (-2250)  1012  435> /* 45: SPC */
             , <&key_physical_attrs 100 100  1299  300  (-152)  1299  300> /* 46: LEFT */
             , <&key_physical_attrs 100 100  1400  300       0  1400  300> /* 47: DOWN */

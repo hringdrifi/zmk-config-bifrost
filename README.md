@@ -47,11 +47,12 @@ include:
 ## ZMK Studio
 
 ZMK Studio is enabled on the left (central) half. Flash both artifacts, connect
-the left half over USB, hold the Layer 1 key, and press the base layer's `Esc`
-position to unlock editing. Then open [ZMK Studio](https://zmk.studio/).
+the left half over USB, then hold either thumb layer key and press the other
+(`LOWER` + `RAISE`) to unlock editing. Then open
+[ZMK Studio](https://zmk.studio/).
 
-The physical layout is defined in `boards/hringbord/bifrost-layouts.dtsi`. Studio
-stores keymap changes on the keyboard, so later `.keymap` changes require
+The physical layout is defined in `boards/hringbord/bifrost-layouts.dtsi`.
+Studio stores keymap changes on the keyboard, so later `.keymap` changes require
 **Restore Stock Settings** in Studio before they take effect.
 
 ## Split Matrix
