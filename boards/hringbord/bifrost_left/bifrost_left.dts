@@ -6,6 +6,7 @@
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
 #include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
+#include <input/processors.dtsi>
 #include "../bifrost.dtsi"
 
 / {
@@ -79,6 +80,11 @@
 
 &trackball_listener_0 {
     status = "okay";
+
+    lower_scroll {
+        layers = <1>; /* LOWER */
+        input-processors = <&zip_xy_scaler 1 16>, <&zip_xy_to_scroll_mapper>;
+    };
 };
 
 

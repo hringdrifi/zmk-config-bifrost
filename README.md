@@ -55,6 +55,13 @@ The physical layout is defined in `boards/hringbord/bifrost-layouts.dtsi`.
 Studio stores keymap changes on the keyboard, so later `.keymap` changes require
 **Restore Stock Settings** in Studio before they take effect.
 
+## Trackball
+
+The trackball moves the pointer on the base layer. While `LOWER` is held, its
+X/Y movement is converted to horizontal/vertical scrolling at 1/16 sensitivity;
+the right-hand `N`, `M`, and comma positions act as left, middle, and right
+mouse buttons.
+
 ## Split Matrix
 
 Both custom board DTS files include the full matrix transform from
