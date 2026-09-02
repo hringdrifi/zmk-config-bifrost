@@ -6,8 +6,7 @@
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
 #include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
-#include <dt-bindings/zmk/matrix_transform.h>
-#include "../bifrost-layouts.dtsi"
+#include "../bifrost.dtsi"
 
 / {
     model = "Bifrost right";
@@ -26,49 +25,36 @@
         compatible = "zmk,battery-nrf-vddh";
     };
 
-    default_transform: keymap_transform_0 {
-        compatible = "zmk,matrix-transform";
-        columns = <49>;
-        rows = <1>;
-        map = <
-            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,29) RC(0,25) RC(0,26) RC(0,27) RC(0,24)
-            RC(0,28) RC(0,5) RC(0,30) RC(0,32) RC(0,33) RC(0,34) RC(0,6) RC(0,7) RC(0,8) RC(0,9)
-            RC(0,31) RC(0,10) RC(0,35) RC(0,11) RC(0,12) RC(0,13) RC(0,36) RC(0,38) RC(0,39) RC(0,40)
-            RC(0,41) RC(0,14) RC(0,15) RC(0,42) RC(0,37) RC(0,16) RC(0,43) RC(0,44) RC(0,45) RC(0,46)
-            RC(0,17) RC(0,18) RC(0,19) RC(0,20) RC(0,21) RC(0,22) RC(0,47) RC(0,23) RC(0,48)
-        >;
-    };
-
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-direct";
         wakeup-source;
 
         input-gpios
-            = <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 0: P1.07 */
-            , <&gpio1 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 1: P1.12 */
-            , <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 2: P1.04 */
-            , <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 3: P1.06 */
-            , <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 4: P1.00 */
-            , <&gpio0 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 5: P0.03 */
-            , <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 6: P0.02 */
-            , <&gpio0 21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 7: P0.21 */
-            , <&gpio1 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 8: P1.03 */
-            , <&gpio1 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 9: P1.05 */
-            , <&gpio0 23 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 10: P0.23 */
-            , <&gpio0 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 11: P0.19 */
-            , <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 12: P1.01 */
-            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 13: P0.22 */
-            , <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 14: P0.20 */
-            , <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 15: P0.17 */
-            , <&gpio0 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 16: P0.15 */
-            , <&gpio0 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 17: P0.13 */
-            , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 18: P0.24 */
-            , <&gpio1 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 19: P1.10 */
-            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 20: P1.11 */
-            , <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 21: P1.02 */
-            , <&gpio0 25 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 22: P0.25 */
-            , <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 23: P0.28 */
-            , <&gpio0 30 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Direct 24: P0.30 */
+            = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /*  0: Y    (P0.02) */
+            , <&gpio0 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /*  1: U    (P0.03) */
+            , <&gpio1 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /*  2: I    (P1.12) */
+            , <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /*  3: O    (P1.04) */
+            , <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /*  4: P    (P1.06) */
+            , <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /*  5: QUOT (P1.07) */
+            , <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /*  6: BSLS (P1.00) */
+            , <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /*  7: H    (P1.01) */
+            , <&gpio0 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /*  8: J    (P0.19) */
+            , <&gpio0 21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /*  9: K    (P0.21) */
+            , <&gpio1 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 10: L    (P1.03) */
+            , <&gpio1 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 11: SCLN (P1.05) */
+            , <&gpio0 23 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 12: ENT  (P0.23) */
+            , <&gpio1 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 13: N    (P1.10) */
+            , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 14: M    (P0.24) */
+            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 15: COMM (P0.22) */
+            , <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 16: DOT  (P0.20) */
+            , <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 17: SLSH (P0.17) */
+            , <&gpio0 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 18: UP   (P0.15) */
+            , <&gpio0 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 19: RSFT (P0.13) */
+            , <&gpio0 30 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 20: ESC  (P0.30) */
+            , <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 21: SPC  (P0.28) */
+            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 22: LEFT (P1.11) */
+            , <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 23: DOWN (P1.02) */
+            , <&gpio0 25 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 24: RGHT (P0.25) */
             ;
     };
 

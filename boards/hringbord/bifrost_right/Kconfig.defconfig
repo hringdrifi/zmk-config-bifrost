@@ -6,13 +6,10 @@ if BOARD_BIFROST_RIGHT
 config BOARD
     default "bifrost_right"
 
-
 config ZMK_SPLIT
     default y
 
 config ZMK_BLE
     default y
 
-
-
-endif
+endif # BOARD_BIFROST_RIGHT

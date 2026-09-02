@@ -21,5 +21,4 @@ config ZMK_BLE
 config ZMK_USB
     default y
 
-
-endif
+endif # BOARD_BIFROST_LEFT
