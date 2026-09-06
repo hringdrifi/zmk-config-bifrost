@@ -9,6 +9,20 @@ config BOARD
 config ZMK_KEYBOARD_NAME
     default "Bifrost"
 
+# Private IDs: low 16 bits of SHA-256 over UTF-8 strings (no newline).
+# VID: "hringdrifi"; PID: "hringdrifi/bifrost". Keep stable across releases.
+config USB_DEVICE_VID
+    default 0x9517
+
+config USB_DEVICE_PID
+    default 0xFF99
+
+config BT_DIS_PNP_VID
+    default 0x9517
+
+config BT_DIS_PNP_PID
+    default 0xFF99
+
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
