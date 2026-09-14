@@ -30,8 +30,9 @@ its directories do not need to be copied into another repository.
 3. Commit and push the changes to GitHub.
 4. Open the repository's **Actions** tab and select the latest successful
    **Build ZMK firmware** run.
-5. Download the firmware artifact and flash the matching left and right firmware
-   files to their respective halves.
+5. Download and extract the firmware artifacts. Put each half into its UF2
+   bootloader mode, then copy the matching `.uf2` file to the USB mass-storage
+   drive that appears.
 
 The build matrix produces firmware for both custom boards:
 
@@ -43,6 +44,9 @@ include:
     artifact-name: bifrost_left_studio
   - board: bifrost_right
 ```
+
+Both board definitions generate UF2 output and target the application partition
+at `0x26000`, leaving the installed Adafruit nRF52 UF2 bootloader intact.
 
 ## ZMK Studio
 

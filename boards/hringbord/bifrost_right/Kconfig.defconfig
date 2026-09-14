@@ -6,6 +6,10 @@ if BOARD_BIFROST_RIGHT
 config BOARD
     default "bifrost_right"
 
+choice ZMK_BOOTMODE_MAGIC_VALUE_BOOTLOADER_TYPE
+    default ZMK_BOOTMODE_MAGIC_VALUE_BOOTLOADER_TYPE_ADAFRUIT_NRF52
+endchoice
+
 config ZMK_SPLIT
     default y
 
