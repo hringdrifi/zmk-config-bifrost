@@ -24,3 +24,9 @@
 include:
   - board: bifrost_left
   - board: bifrost_right
+  - board: bifrost_left
+    shield: settings_reset
+    artifact-name: bifrost_left_settings_reset
+  - board: bifrost_right
+    shield: settings_reset
+    artifact-name: bifrost_right_settings_reset

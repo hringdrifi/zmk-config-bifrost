@@ -26,6 +26,13 @@ firmware** GitHub Actions run, and flash the corresponding UF2 on each half.
 Both builds target the application partition at `0x26000` and leave the
 Adafruit nRF52 UF2 bootloader intact.
 
+Flash `bifrost_left_settings_reset` to the left and
+`bifrost_right_settings_reset` to the right first. These reset images erase
+Bluetooth bonds and other stored settings. Then flash `bifrost_left` and
+`bifrost_right` to the matching halves. This is required when changing the
+central role, because an already bonded ZMK peripheral uses directed advertising
+to its former central.
+
 Existing bonds to the former left central must be cleared before pairing both
 halves with Liki. A split peripheral does not connect directly to a PC and
 does not expose a ZMK Studio interface. Liki must implement the keymap and
