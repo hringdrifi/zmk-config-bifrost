@@ -24,6 +24,9 @@
 include:
   - board: bifrost_left
   - board: bifrost_right
+  - board: bifrost_right
+    snippet: zmk-usb-logging
+    artifact-name: bifrost_right_ble_debug
   - board: bifrost_left
     shield: settings_reset
     artifact-name: bifrost_left_settings_reset
