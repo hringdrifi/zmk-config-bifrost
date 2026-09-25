@@ -27,16 +27,10 @@ config BT_DIS_PNP_VID
 config BT_DIS_PNP_PID
     default 0xFF99
 
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-
 config ZMK_SPLIT
     default y
 
 config ZMK_BLE
-    default y
-
-config ZMK_USB
     default y
 
 endif # BOARD_BIFROST_LEFT
