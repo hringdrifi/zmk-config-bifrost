@@ -1,0 +1,24 @@
+diff --git a/app/src/split/bluetooth/peripheral.c b/app/src/split/bluetooth/peripheral.c
+index 0d3ad2d..68c0f44 100644
+--- a/app/src/split/bluetooth/peripheral.c
++++ b/app/src/split/bluetooth/peripheral.c
+@@ -61,15 +61,10 @@ static int start_advertising(bool low_duty) {
+ 
+     bt_foreach_bond(BT_ID_DEFAULT, each_bond, &central_addr);
+ 
+-    if (bt_addr_le_cmp(&central_addr, BT_ADDR_LE_NONE) != 0) {
+-        is_bonded = true;
+-        struct bt_le_adv_param adv_param = low_duty ? *BT_LE_ADV_CONN_DIR_LOW_DUTY(&central_addr)
+-                                                    : *BT_LE_ADV_CONN_DIR(&central_addr);
+-        return bt_le_adv_start(&adv_param, NULL, 0, NULL, 0);
+-    } else {
+-        is_bonded = false;
+-        return bt_le_adv_start(BT_LE_ADV_CONN_FAST_2, zmk_ble_ad, ARRAY_SIZE(zmk_ble_ad), NULL, 0);
+-    }
++    /* Android central discovery requires the split service UUID in advertisements. */
++    is_bonded = bt_addr_le_cmp(&central_addr, BT_ADDR_LE_NONE) != 0;
++    (void)low_duty;
++    return bt_le_adv_start(BT_LE_ADV_CONN_FAST_2, zmk_ble_ad, ARRAY_SIZE(zmk_ble_ad), NULL, 0);
+ };
+ 
+ static bool low_duty_advertising = false;
