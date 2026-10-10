@@ -95,7 +95,10 @@
     trackball_0: pmw3610@0 {
         compatible = "pixart,pmw3610";
         reg = <0>;
-        spi-max-frequency = <2000000>;
+        /* At 125 kHz the half-cycle address/data gap meets tSRAD = 4 us.
+         * The stock driver does not insert an explicit read delay.
+         */
+        spi-max-frequency = <125000>;
         spi-cpol;
         spi-cpha;
         motion-gpios = <&gpio0 26 (GPIO_ACTIVE_LOW | GPIO_PULL_UP) /* Trackball 0 MOTION: P0.26 */>;
