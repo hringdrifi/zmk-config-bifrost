@@ -9,6 +9,7 @@
 #include <zephyr/drivers/spi.h>
 #include <zephyr/init.h>
 #include <zephyr/input/input.h>
+#include <zephyr/input/input_pmw3610.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 #include <zephyr/sys/atomic.h>
@@ -26,6 +27,7 @@ static const struct spi_dt_spec trackball_spi = SPI_DT_SPEC_GET(
     TRACKBALL_NODE, SPI_OP_MODE_MASTER | SPI_WORD_SET(8) | SPI_MODE_CPOL | SPI_MODE_CPHA, 0);
 static unsigned int poll_count;
 static unsigned int poll_motion_count;
+static bool awake_requested;
 
 /* Read the same burst as the driver, including optical quality and shutter.
  * Only used while no input callbacks have been observed. Burst reads consume
@@ -59,6 +61,16 @@ static void trackball_status(struct k_work *work) {
 
     bool ready = device_is_ready(trackball);
     atomic_val_t events = atomic_get(&input_events);
+
+    if (ready && !awake_requested) {
+        int ret = pmw3610_force_awake(trackball, true);
+
+        LOG_INF("force_awake ret=%d", ret);
+        awake_requested = true;
+        /* Let the sensor acquire frames before inspecting optical quality. */
+        k_work_reschedule(&status_work, K_MSEC(100));
+        return;
+    }
 
     if (ready && events == 0) {
         uint8_t burst[7] = {0};
