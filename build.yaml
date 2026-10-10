@@ -29,5 +29,5 @@ include:
   - board: bifrost_right
   - board: bifrost_right
     snippet: zmk-usb-logging
-    cmake-args: -DCONFIG_INPUT_LOG_LEVEL_DBG=y
+    cmake-args: -DCONFIG_INPUT_LOG_LEVEL_DBG=y -DCONFIG_BIFROST_TRACKBALL_DIAGNOSTICS=y
     artifact-name: bifrost_right_trackball_debug

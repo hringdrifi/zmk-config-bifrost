@@ -1,0 +1,7 @@
+# Copyright (c) 2026 hringdrifi
+# SPDX-License-Identifier: MIT
+
+config BIFROST_TRACKBALL_DIAGNOSTICS
+    bool "Log Bifrost trackball readiness, motion pin and input events"
+    depends on INPUT && GPIO && DT_HAS_PIXART_PMW3610_ENABLED
+    default n

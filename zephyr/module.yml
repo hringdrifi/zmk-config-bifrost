@@ -3,5 +3,7 @@
 
 name: zmk-keyboard-bifrost
 build:
+  cmake: .
+  kconfig: Kconfig
   settings:
     board_root: .
