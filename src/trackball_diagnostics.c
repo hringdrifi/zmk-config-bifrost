@@ -21,7 +21,11 @@ LOG_MODULE_REGISTER(bifrost_trackball, LOG_LEVEL_INF);
 #define TRACKBALL_NODE DT_NODELABEL(trackball_0)
 
 static const struct device *const trackball = DEVICE_DT_GET(TRACKBALL_NODE);
+#if DT_NODE_HAS_PROP(TRACKBALL_NODE, motion_gpios)
 static const struct gpio_dt_spec motion = GPIO_DT_SPEC_GET(TRACKBALL_NODE, motion_gpios);
+#else
+static const struct gpio_dt_spec motion = GPIO_DT_SPEC_GET(TRACKBALL_NODE, irq_gpios);
+#endif
 static atomic_t input_events;
 static const struct spi_dt_spec trackball_spi = SPI_DT_SPEC_GET(
     TRACKBALL_NODE, SPI_OP_MODE_MASTER | SPI_WORD_SET(8) | SPI_MODE_CPOL | SPI_MODE_CPHA, 15);
@@ -64,9 +68,16 @@ static void trackball_status(struct k_work *work) {
     atomic_val_t events = atomic_get(&input_events);
 
     if (ready && !awake_requested) {
+#if IS_ENABLED(CONFIG_INPUT_PMW3610)
         awake_result = pmw3610_force_awake(trackball, true);
-
-        LOG_INF("force_awake ret=%d", awake_result);
+        LOG_INF("driver=zephyr force_awake ret=%d", awake_result);
+#else
+        /* The alternative driver applies the force-awake devicetree setting
+         * during asynchronous initialization, before our first status check.
+         */
+        awake_result = 0;
+        LOG_INF("driver=badjeff force-awake configured in devicetree");
+#endif
         awake_requested = true;
         /* Let the sensor acquire frames before inspecting optical quality. */
         k_work_reschedule(&status_work, K_MSEC(100));
@@ -84,9 +95,10 @@ static void trackball_status(struct k_work *work) {
             LOG_INF("polled motion x=%d y=%d motion_active=%d", x, y, motion_active);
         }
         if ((poll_count++ % 20) == 0) {
-            LOG_INF("sensor_ready=1 awake_ret=%d motion_active=%d input_events=0 poll_ret=%d "
+            LOG_INF("driver=%s sensor_ready=1 awake_ret=%d motion_active=%d input_events=0 poll_ret=%d "
                     "motion=0x%02x squal=%u shutter=%u polled_motion=%u",
-                    awake_result, motion_active, ret, burst[0], burst[4], sys_get_be16(&burst[5]),
+                    IS_ENABLED(CONFIG_PMW3610_ALT) ? "badjeff" : "zephyr", awake_result,
+                    motion_active, ret, burst[0], burst[4], sys_get_be16(&burst[5]),
                     poll_motion_count);
         }
         k_work_reschedule(&status_work, K_MSEC(100));

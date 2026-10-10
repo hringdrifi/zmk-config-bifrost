@@ -1,0 +1,11 @@
+--- a/src/pmw3610.c
++++ b/src/pmw3610.c
+@@ -669,7 +669,7 @@
+ #define PMW3610_DEFINE(n)                                                                          \
+     static struct pixart_data data##n;                                                             \
+     static const struct pixart_config config##n = {                                                \
+-		.spi = SPI_DT_SPEC_INST_GET(n, PMW3610_SPI_MODE, 0),		                               \
++		.spi = SPI_DT_SPEC_INST_GET(n, PMW3610_SPI_MODE, 15),		                               \
+         .irq_gpio = GPIO_DT_SPEC_INST_GET(n, irq_gpios),                                           \
+         .cpi = DT_PROP(DT_DRV_INST(n), cpi),                                                       \
+         .swap_xy = DT_PROP(DT_DRV_INST(n), swap_xy),                                               \

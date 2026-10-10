@@ -93,7 +93,7 @@
     pinctrl-names = "default";
     cs-gpios = <&gpio0 5 GPIO_ACTIVE_LOW /* Trackball 0 CS: P0.05 */>;
     trackball_0: pmw3610@0 {
-        compatible = "pixart,pmw3610";
+        compatible = "pixart,pmw3610-alt";
         reg = <0>;
         /* At 125 kHz the half-cycle address/data gap meets tSRAD = 4 us.
          * The stock driver does not insert an explicit read delay.
@@ -101,10 +101,12 @@
         spi-max-frequency = <125000>;
         spi-cpol;
         spi-cpha;
-        motion-gpios = <&gpio0 26 (GPIO_ACTIVE_LOW | GPIO_PULL_UP) /* Trackball 0 MOTION: P0.26 */>;
-        zephyr,axis-x = <INPUT_REL_X>;
-        zephyr,axis-y = <INPUT_REL_Y>;
-        res-cpi = <1200>;
+        irq-gpios = <&gpio0 26 (GPIO_ACTIVE_LOW | GPIO_PULL_UP) /* Trackball 0 MOTION: P0.26 */>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        cpi = <1200>;
+        force-awake;
     };
 };
 

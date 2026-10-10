@@ -3,5 +3,6 @@
 
 config BIFROST_TRACKBALL_DIAGNOSTICS
     bool "Log Bifrost trackball readiness, motion pin and input events"
-    depends on INPUT && GPIO && DT_HAS_PIXART_PMW3610_ENABLED
+    depends on INPUT && GPIO
+    depends on DT_HAS_PIXART_PMW3610_ENABLED || DT_HAS_PIXART_PMW3610_ALT_ENABLED
     default n

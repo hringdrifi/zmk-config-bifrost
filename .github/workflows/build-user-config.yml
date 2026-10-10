@@ -140,6 +140,15 @@ jobs:
           git apply --check ../config/patches/pmw3610-cs-timing.patch
           git apply ../config/patches/pmw3610-cs-timing.patch
 
+      # Keep the external sensor driver timing consistent with our SPI bus.
+      # This checkout is disposable and may be restored from a patched cache.
+      - name: Apply alternative PMW3610 chip-select timing
+        working-directory: ${{ env.base_dir }}/zmk-pmw3610-driver
+        run: |
+          git restore --source=HEAD -- src/pmw3610.c
+          git apply --check ../config/patches/pmw3610-alt-cs-timing.patch
+          git apply ../config/patches/pmw3610-alt-cs-timing.patch
+
       - name: Check ZMK revision
         working-directory: ${{ env.base_dir }}
         run: |
