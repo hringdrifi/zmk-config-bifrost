@@ -27,3 +27,7 @@ include:
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: bifrost_left_studio
   - board: bifrost_right
+  - board: bifrost_right
+    snippet: zmk-usb-logging
+    cmake-args: -DCONFIG_INPUT_LOG_LEVEL_DBG=y
+    artifact-name: bifrost_right_trackball_debug
