@@ -23,7 +23,7 @@ static const struct device *const trackball = DEVICE_DT_GET(TRACKBALL_NODE);
 static const struct gpio_dt_spec motion = GPIO_DT_SPEC_GET(TRACKBALL_NODE, motion_gpios);
 static atomic_t input_events;
 static const struct spi_dt_spec trackball_spi = SPI_DT_SPEC_GET(
-    TRACKBALL_NODE, SPI_OP_MODE_CONTROLLER | SPI_WORD_SET(8) | SPI_MODE_CPOL | SPI_MODE_CPHA, 0);
+    TRACKBALL_NODE, SPI_OP_MODE_MASTER | SPI_WORD_SET(8) | SPI_MODE_CPOL | SPI_MODE_CPHA, 0);
 static unsigned int poll_count;
 static unsigned int poll_motion_count;
 
