@@ -57,6 +57,16 @@ halves, remove the old Bifrost pairing on the host once, and pair again. Wait at
 least two seconds after pairing before restarting either half, allowing the
 delayed Bluetooth settings write to finish.
 
+If the right half stops connecting after migrating the settings partition,
+reset the pairing on both halves. Back up any Studio keymap first: this erases
+all saved settings, including Bluetooth bonds and Studio changes.
+Flash `bifrost_left_settings_reset.uf2` to the left and
+`bifrost_right_settings_reset.uf2` to the right, letting each reset image boot.
+Reset both halves before flashing either normal image, so an old firmware
+identity cannot be bonded during the procedure. Then flash
+`bifrost_left_studio.uf2` and `bifrost_right-zmk.uf2`, power both halves off and on
+together, and remove/re-pair Bifrost on the host once.
+
 ## ZMK Studio
 
 ZMK Studio is enabled on the left (central) half. Flash both artifacts, connect
