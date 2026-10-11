@@ -87,7 +87,7 @@
 
 &trackball_listener_0 {
     status = "okay";
-    input-processors = <&auto_mouse_layer 3 1200>; /* MOUSE, timeout in ms */
+    input-processors = <&zip_xy_scaler 3 4>, <&auto_mouse_layer 3 1200>;
 
     lower_scroll {
         layers = <1>; /* LOWER */
@@ -96,6 +96,7 @@
 
     raise_pointer {
         layers = <2>; /* Keep RAISE navigation bindings during pointer movement. */
+        input-processors = <&zip_xy_scaler 3 4>;
     };
 };
 
