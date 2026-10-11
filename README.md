@@ -62,13 +62,14 @@ Studio stores keymap changes on the keyboard, so later `.keymap` changes require
 ## Trackball
 
 The right half uses the badjeff PMW3610 driver pinned in `config/west.yml`.
-It runs at 1200 CPI with X inverted and Y unchanged. SPI is limited to 125 kHz,
+It runs at 1000 CPI with X inverted and Y unchanged. SPI is limited to 125 kHz,
 and the build applies a 15 us chip-select delay patch to meet sensor timing.
 The force-awake setting follows ZMK activity changes; a 1 second startup delay
 allows the sensor power to settle before initialization.
 
-The trackball moves the pointer at 75% of the sensor's reported movement on the
-base and `RAISE` layers. While `LOWER` is held, its
+The trackball moves the pointer on the base layer. The 1000 CPI sensor setting
+reduces both pointer and scroll movement by about 17% compared with 1200 CPI.
+While `LOWER` is held, its
 X/Y movement is converted to horizontal/vertical scrolling at 1/16 sensitivity;
 the right-hand `N`, `M`, and comma positions act as left, middle, and right
 mouse buttons.
