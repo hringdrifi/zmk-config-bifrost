@@ -106,6 +106,7 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
         cpi = <1200>;
+        invert-x;
         force-awake;
     };
 };
