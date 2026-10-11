@@ -48,6 +48,15 @@ include:
 Both board definitions generate UF2 output and target the application partition
 at `0x26000`, leaving the installed Adafruit nRF52 UF2 bootloader intact.
 
+Bluetooth identities, pairing keys, and Studio settings use the NVS storage
+partition at `0xEC000`--`0xF3FFF`. Both boards enable `CONFIG_FLASH_MAP` so that
+`CONFIG_SETTINGS_NVS` is selected instead of the non-persistent settings backend.
+The application partition ends at `0xEC000`; the UF2 bootloader starts at `0xF4000`.
+When updating from firmware that did not retain Bluetooth settings, flash both
+halves, remove the old Bifrost pairing on the host once, and pair again. Wait at
+least two seconds after pairing before restarting either half, allowing the
+delayed Bluetooth settings write to finish.
+
 ## ZMK Studio
 
 ZMK Studio is enabled on the left (central) half. Flash both artifacts, connect
