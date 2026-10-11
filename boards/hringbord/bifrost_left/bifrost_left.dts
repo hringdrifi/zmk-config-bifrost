@@ -76,14 +76,27 @@
         status = "disabled";
         device = <&trackball_split_0>;
     };
+
+    auto_mouse_layer: auto_mouse_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <200>;
+        excluded-positions = <20 21 22>; /* J, K, L: mouse clicks */
+    };
 };
 
 &trackball_listener_0 {
     status = "okay";
+    input-processors = <&auto_mouse_layer 3 1200>; /* MOUSE, timeout in ms */
 
     lower_scroll {
         layers = <1>; /* LOWER */
         input-processors = <&zip_xy_scaler 1 16>, <&zip_xy_to_scroll_mapper>;
+    };
+
+    raise_pointer {
+        layers = <2>; /* Keep RAISE navigation bindings during pointer movement. */
+        input-processors = <>;
     };
 };
 
