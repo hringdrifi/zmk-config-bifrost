@@ -96,7 +96,6 @@
 
     raise_pointer {
         layers = <2>; /* Keep RAISE navigation bindings during pointer movement. */
-        input-processors = <>;
     };
 };
 
