@@ -48,6 +48,16 @@ include:
 Both board definitions generate UF2 output and target the application partition
 at `0x26000`, leaving the installed Adafruit nRF52 UF2 bootloader intact.
 
+## US-style symbols on Windows Japanese layout
+
+The keymap on the `codex/jis-host-us-layout` branch targets Windows with its
+hardware keyboard layout set to Japanese (106/109 keys). It remaps the existing
+base and LOWER symbol positions so they type their intended US-layout characters
+without changing the Windows layout setting. This mapping is specific to the
+Japanese host layout; other host layouts will produce different symbols.
+After flashing, use **Restore Stock Settings** in ZMK Studio if it has a saved
+keymap, then check symbols including `\\`, `|`, `_`, `:`, brackets, and quotes.
+
 Bluetooth identities, pairing keys, and Studio settings use the NVS storage
 partition at `0xEC000`--`0xF3FFF`. Both boards enable `CONFIG_FLASH_MAP` so that
 `CONFIG_SETTINGS_NVS` is selected instead of the non-persistent settings backend.
