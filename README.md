@@ -22,6 +22,15 @@ half is the peripheral and includes support for a PMW3610 pointing device.
 
 ## Build
 
+### Liki layer integration
+
+The left (central) firmware enables `CONFIG_ZMK_LIKI` from the external
+[`zmk-feature-liki`](https://github.com/hringdrifi/zmk-feature-liki) module.
+`config/west.yml` pins the module to a specific commit. It notifies Liki on
+Android/iPhone of the highest active layer over BLE, independently of Studio.
+Rebuild and flash the left half to enable it; the right half needs no change.
+Physical layout and key labels still come from Studio when available.
+
 This repository is already configured as a complete ZMK user-config repository;
 its directories do not need to be copied into another repository.
 
