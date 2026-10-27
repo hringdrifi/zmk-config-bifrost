@@ -22,6 +22,15 @@ half is the peripheral and includes support for a PMW3610 pointing device.
 
 ## Build
 
+### Liki layer integration
+
+The left (central) firmware enables `CONFIG_ZMK_LIKI` from the external
+[`zmk-feature-liki`](https://github.com/hringdrifi/zmk-feature-liki) module.
+`config/west.yml` pins the module to a specific commit. It notifies Liki on
+Android/iPhone of the highest active layer over BLE, independently of Studio.
+Rebuild and flash the left half to enable it; the right half needs no change.
+Physical layout and key labels still come from Studio when available.
+
 This repository is already configured as a complete ZMK user-config repository;
 its directories do not need to be copied into another repository.
 
@@ -48,6 +57,16 @@ include:
 Both board definitions generate UF2 output and target the application partition
 at `0x26000`, leaving the installed Adafruit nRF52 UF2 bootloader intact.
 
+## US-style symbols on Windows Japanese layout
+
+The keymap on the `codex/jis-host-us-layout` branch targets Windows with its
+hardware keyboard layout set to Japanese (106/109 keys). It remaps the existing
+base and LOWER symbol positions so they type their intended US-layout characters
+without changing the Windows layout setting. This mapping is specific to the
+Japanese host layout; other host layouts will produce different symbols.
+After flashing, use **Restore Stock Settings** in ZMK Studio if it has a saved
+keymap, then check symbols including `\\`, `|`, `_`, `:`, brackets, and quotes.
+
 Bluetooth identities, pairing keys, and Studio settings use the NVS storage
 partition at `0xEC000`--`0xF3FFF`. Both boards enable `CONFIG_FLASH_MAP` so that
 `CONFIG_SETTINGS_NVS` is selected instead of the non-persistent settings backend.
@@ -56,6 +75,16 @@ When updating from firmware that did not retain Bluetooth settings, flash both
 halves, remove the old Bifrost pairing on the host once, and pair again. Wait at
 least two seconds after pairing before restarting either half, allowing the
 delayed Bluetooth settings write to finish.
+
+If the right half stops connecting after migrating the settings partition,
+reset the pairing on both halves. Back up any Studio keymap first: this erases
+all saved settings, including Bluetooth bonds and Studio changes.
+Flash `bifrost_left_settings_reset.uf2` to the left and
+`bifrost_right_settings_reset.uf2` to the right, letting each reset image boot.
+Reset both halves before flashing either normal image, so an old firmware
+identity cannot be bonded during the procedure. Then flash
+`bifrost_left_studio.uf2` and `bifrost_right-zmk.uf2`, power both halves off and on
+together, and remove/re-pair Bifrost on the host once.
 
 ## ZMK Studio
 

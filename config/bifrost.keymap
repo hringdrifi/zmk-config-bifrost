@@ -5,6 +5,7 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/modifiers.h>
 #include <dt-bindings/zmk/pointing.h>
 
 #define LOWER 1
@@ -12,6 +13,30 @@
 #define MOUSE 3
 
 / {
+    /* Windows JIS host: emit the keys that produce US-layout symbols. */
+    behaviors {
+        us_minus: us_minus {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp LS(INT1)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        us_backslash: us_backslash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp INT1>, <&kp LS(INT3)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        us_semicolon: us_semicolon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SEMI>, <&kp SQT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -20,7 +45,7 @@
         layer_0 {
             display-name = "BASE";
             bindings = <
-&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp MINUS  &kp BSLH  &kp CAPS  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp RET  &kp LSHIFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp UP  &kp RSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  &trans  &lt 1 SPACE  &kp ESC  &kp BACKSPACE  &lt 2 DEL  &kp LEFT  &kp DOWN  &kp RIGHT
+&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &us_minus  &us_backslash  &kp LS(CAPS)  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &us_semicolon  &kp RET  &kp LSHIFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp UP  &kp RSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  &trans  &lt 1 SPACE  &kp ESC  &kp BACKSPACE  &lt 2 DEL  &kp LEFT  &kp DOWN  &kp RIGHT
             >;
         };
 
@@ -29,7 +54,7 @@
         layer_1 {
             display-name = "LOWER";
             bindings = <
-&trans  &kp EXCL  &kp DQT  &kp HASH  &kp DLLR  &kp PRCNT  &kp AMPS  &kp SQT  &kp LPAR  &kp RPAR  &kp N0  &kp MINUS  &kp EQUAL  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &trans  &trans  &kp GRAVE  &kp LBKT  &kp RBKT  &kp LBRC  &kp RBRC  &mkp LCLK  &mkp MCLK  &mkp RCLK  &msc SCRL_DOWN  &msc SCRL_UP  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bootloader  &trans  &studio_unlock  &kp HOME  &kp PG_DN  &kp END
+&trans  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp N0  &us_minus  &kp LS(MINUS)  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &trans  &trans  &kp LS(LBKT)  &kp RBKT  &kp NUHS  &kp LS(RBKT)  &kp LS(NUHS)  &mkp LCLK  &mkp MCLK  &mkp RCLK  &msc SCRL_DOWN  &msc SCRL_UP  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bootloader  &trans  &studio_unlock  &kp HOME  &kp PG_DN  &kp END
             >;
         };
 
