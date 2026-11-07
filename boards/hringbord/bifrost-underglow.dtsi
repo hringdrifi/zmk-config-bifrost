@@ -1,0 +1,52 @@
+/*
+ * Copyright (c) 2026 hringdrifi
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <dt-bindings/led/led.h>
+
+/ {
+    chosen {
+        zmk,underglow = &thumb_leds;
+    };
+
+    /* RGB_EN drives Q2, which enables the Q1 high-side power switch. */
+    thumb_led_power: external_power {
+        compatible = "zmk,ext-power-generic";
+        control-gpios = <&gpio1 9 GPIO_ACTIVE_HIGH>;
+        init-delay-ms = <1>;
+    };
+};
+
+&pinctrl {
+    thumb_rgb_default: thumb_rgb_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_MOSI, 0, 27)>;
+        };
+    };
+
+    thumb_rgb_sleep: thumb_rgb_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_MOSI, 0, 27)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi3 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&thumb_rgb_default>;
+    pinctrl-1 = <&thumb_rgb_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    thumb_leds: ws2812@0 {
+        compatible = "worldsemi,ws2812-spi";
+        reg = <0>;
+        spi-max-frequency = <4000000>;
+        chain-length = <3>;
+        spi-one-frame = <0x70>;
+        spi-zero-frame = <0x40>;
+        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+    };
+};

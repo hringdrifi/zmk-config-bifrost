@@ -97,6 +97,26 @@ The physical layout is defined in `boards/hringbord/bifrost-layouts.dtsi`.
 Studio stores keymap changes on the keyboard, so later `.keymap` changes require
 **Restore Stock Settings** in Studio before they take effect.
 
+## Thumb RGB lighting
+
+The thumb boards have three WS2812B-2020 LEDs on the left and two WS2812C-2020
+LEDs on the right. Both halves use P0.27 for RGB data through SPI3 and P1.09
+(active high) to enable the LED power switch. SPI0 remains dedicated to the
+right-hand trackball.
+
+The MDBT50Q is powered through VDDH (+VSW), so the nRF52840 runs in
+high-voltage mode and its GPIO level is set by `UICR.REGOUT0`. The erased
+default is 1.8 V, which is too low for the LEDs (powered from +VSW, about
+3.7-4.7 V) to read their data input. On first boot the firmware programs
+`REGOUT0` to 3.3 V and resets once (`boards/hringbord/bifrost_regout0.c`). This
+setting persists in UICR and is only cleared by a full chip erase.
+
+Flash both halves to enable the lights. The initial setting is solid white at
+20% brightness, on at startup. The keymap includes RGB controls on LOWER and
+RAISE. Additional RGB underglow behaviors (`&rgb_ug`) can be assigned in ZMK
+Studio for color control. ZMK saves lighting changes on each half, so saved
+settings take precedence over the firmware's startup defaults.
+
 ## Trackball
 
 The right half uses the badjeff PMW3610 driver pinned in `config/west.yml`.
@@ -112,10 +132,10 @@ X/Y movement is converted to horizontal/vertical scrolling at 1/16 sensitivity;
 the right-hand `N`, `M`, and comma positions act as left, middle, and right
 mouse buttons.
 
-Pointer movement automatically enables the `MOUSE` layer (layer 3): `F`/`J` are
-left click, `D`/`K` are middle click, and `S`/`L` are right click. It turns off after 1200 ms
+Pointer movement automatically enables the `MOUSE` layer (layer 3): `J` is left
+click, `K` is middle click, and `L` is right click. It turns off after 1200 ms
 without trackball input, or when another keyboard position is pressed. The
-six click positions are excluded from immediate cancellation. Activation
+three click positions are excluded from immediate cancellation. Activation
 requires 200 ms without keyboard input to avoid switching layers while typing.
 `LOWER` scrolling and `RAISE` navigation take precedence over auto activation.
 If Studio has saved an older keymap, set the layer 3 `J`/`K`/`L` bindings to
