@@ -51,7 +51,7 @@
         layer_0 {
             display-name = "BASE";
             bindings = <
-&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &us_minus  &us_backslash  &kp LS(CAPS)  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &us_semicolon  &kp RET  &kp LSHIFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp UP  &kp RSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  &trans  &lt 1 SPACE  &kp ESC  &kp BACKSPACE  &lt 2 DEL  &kp LEFT  &kp DOWN  &kp RIGHT
+&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &us_minus  &us_backslash  &kp CAPS  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &us_semicolon  &kp RET  &kp LSHIFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp UP  &kp RSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  &trans  &lt 1 SPACE  &kp ESC  &kp BACKSPACE  &lt 2 DEL  &kp LEFT  &kp DOWN  &kp RIGHT
             >;
         };
 
@@ -69,7 +69,7 @@
         layer_2 {
             display-name = "RAISE";
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &kp INSERT  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp DEL  &trans  &trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(A)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &rgb_ug RGB_BRD  &studio_unlock  &rgb_ug RGB_BRI  &bootloader  &trans  &kp HOME  &kp PG_DN  &kp END
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &kp INSERT  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp DEL  &trans  &trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(A)  &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans  &rgb_ug RGB_HUD  &rgb_ug RGB_BRI  &rgb_ug RGB_HUI  &trans  &trans  &trans  &trans  &studio_unlock  &trans  &bootloader  &trans  &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPI
             >;
         };
 
