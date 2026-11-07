@@ -117,6 +117,20 @@ RAISE. Additional RGB underglow behaviors (`&rgb_ug`) can be assigned in ZMK
 Studio for color control. ZMK saves lighting changes on each half, so saved
 settings take precedence over the firmware's startup defaults.
 
+While the `MOUSE` layer is active, the thumb lights on both halves turn red,
+keeping the current brightness and using the current saturation plus 50
+(capped at 100), and return to the previous colour when the
+layer turns off. Animated effects ignore the colour, so they switch to solid
+for the duration of the layer and are restored afterwards. Nothing changes
+while the lights are off. With the solid effect this causes no flash writes;
+with an animated effect, ZMK saves the lighting state once, 60 seconds after
+the last change.
+
+The right half receives these changes over the split link. The left half sets
+`CONFIG_ZMK_SPLIT_BLE_PREF_LATENCY=4` (default 30) so the right half follows
+within about 40 ms instead of up to about 230 ms, at some cost to right-hand
+battery life while idle.
+
 ## Status LED
 
 The left main board's RGB status LED (red P0.20, green P0.24, blue P0.22,
@@ -139,10 +153,10 @@ X/Y movement is converted to horizontal/vertical scrolling at 1/16 sensitivity;
 the right-hand `N`, `M`, and comma positions act as left, middle, and right
 mouse buttons.
 
-Pointer movement automatically enables the `MOUSE` layer (layer 3): `J` is left
-click, `K` is middle click, and `L` is right click. It turns off after 1200 ms
+Pointer movement automatically enables the `MOUSE` layer (layer 3): `F`/`J` are
+left click, `D`/`K` are middle click, and `S`/`L` are right click. It turns off after 1200 ms
 without trackball input, or when another keyboard position is pressed. The
-three click positions are excluded from immediate cancellation. Activation
+six click positions are excluded from immediate cancellation. Activation
 requires 200 ms without keyboard input to avoid switching layers while typing.
 `LOWER` scrolling and `RAISE` navigation take precedence over auto activation.
 If Studio has saved an older keymap, set the layer 3 `J`/`K`/`L` bindings to
