@@ -59,7 +59,7 @@
         layer_1 {
             display-name = "LOWER";
             bindings = <
-&bt BT_SEL 0  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp N0  &kp EQUAL  &trans  &bt BT_SEL 1  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &trans  &bt BT_SEL 2  &kp LS(LBKT)  &kp RBKT  &kp NUHS  &kp LS(RBKT)  &kp LS(NUHS)  &trans  &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans  &kp PG_UP  &trans  &bt BT_CLR  &trans  &trans  &trans  &trans  &bootloader  &kp DEL  &studio_unlock  &kp HOME  &kp PG_DN  &kp END
+&bt BT_SEL 0  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp N0  &kp EQUAL  &trans  &bt BT_SEL 1  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp DOUBLE_QUOTES  &bt BT_SEL 2  &kp LS(LBKT)  &kp RBKT  &kp NUHS  &kp LS(RBKT)  &kp LS(NUHS)  &trans  &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans  &kp PG_UP  &trans  &bt BT_CLR  &trans  &trans  &trans  &trans  &bootloader  &kp DEL  &studio_unlock  &kp HOME  &kp PG_DN  &kp END
             >;
         };
 
