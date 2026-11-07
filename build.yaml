@@ -33,3 +33,7 @@ include:
   - board: bifrost_right
     shield: settings_reset
     artifact-name: bifrost_right_settings_reset
+  - board: bifrost_left
+    snippet: studio-rpc-usb-uart;zmk-usb-logging
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_SPI_LOG_LEVEL_DBG=y -DCONFIG_LED_STRIP_LOG_LEVEL_DBG=y
+    artifact-name: bifrost_left_rgb_debug
