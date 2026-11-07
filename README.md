@@ -117,8 +117,9 @@ RAISE. Additional RGB underglow behaviors (`&rgb_ug`) can be assigned in ZMK
 Studio for color control. ZMK saves lighting changes on each half, so saved
 settings take precedence over the firmware's startup defaults.
 
-While the `MOUSE` layer is active, the thumb lights on both halves turn green
-(keeping the current brightness) and return to the previous colour when the
+While the `MOUSE` layer is active, the thumb lights on both halves turn red,
+keeping the current brightness and using the current saturation plus 50
+(capped at 100), and return to the previous colour when the
 layer turns off. Animated effects ignore the colour, so they switch to solid
 for the duration of the layer and are restored afterwards. Nothing changes
 while the lights are off. With the solid effect this causes no flash writes;
