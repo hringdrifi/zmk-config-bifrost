@@ -97,6 +97,19 @@ The physical layout is defined in `boards/hringbord/bifrost-layouts.dtsi`.
 Studio stores keymap changes on the keyboard, so later `.keymap` changes require
 **Restore Stock Settings** in Studio before they take effect.
 
+## Thumb RGB lighting
+
+The thumb boards have three WS2812B-2020 LEDs on the left and two WS2812C-2020
+LEDs on the right. Both halves use P0.27 for RGB data through SPI3 and P1.09
+(active high) to enable the LED power switch. SPI0 remains dedicated to the
+right-hand trackball.
+
+Flash both halves to enable the lights. The initial setting is solid white at
+20% brightness, on at startup. The existing keymap is unchanged. RGB underglow
+behaviors (`&rgb_ug`) can be assigned in ZMK Studio for on/off, brightness, and
+color control. ZMK saves lighting changes on each half, so saved settings take
+precedence over the firmware's startup defaults.
+
 ## Trackball
 
 The right half uses the badjeff PMW3610 driver pinned in `config/west.yml`.
