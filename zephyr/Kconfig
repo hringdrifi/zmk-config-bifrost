@@ -4,3 +4,11 @@ config BIFROST_RGB_DIAGNOSTICS
     help
       Add a USB shell command to inspect RGB state and hold the thumb LED
       data line low or high for multimeter measurements. Disabled by default.
+
+config BIFROST_RGB_AUTO_TEST
+    bool "Bifrost automatic RGB data-line voltage test"
+    depends on WS2812_STRIP_GPIO && ZMK_RGB_UNDERGLOW && ZMK_EXT_POWER
+    depends on !BIFROST_RGB_DIAGNOSTICS
+    help
+      Stop RGB animation after startup, keep LED power enabled, and alternate
+      P0.27 low/high every ten seconds without a USB terminal.
