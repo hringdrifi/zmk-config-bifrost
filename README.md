@@ -119,8 +119,16 @@ settings take precedence over the firmware's startup defaults.
 
 While the `MOUSE` layer is active, the thumb lights on both halves turn green
 (keeping the current brightness) and return to the previous colour when the
-layer turns off. This uses `RGB_COLOR_HSB`, which does not trigger a settings
-save, so entering and leaving the layer causes no flash writes.
+layer turns off. Animated effects ignore the colour, so they switch to solid
+for the duration of the layer and are restored afterwards. Nothing changes
+while the lights are off. With the solid effect this causes no flash writes;
+with an animated effect, ZMK saves the lighting state once, 60 seconds after
+the last change.
+
+The right half receives these changes over the split link. The left half sets
+`CONFIG_ZMK_SPLIT_BLE_PREF_LATENCY=4` (default 30) so the right half follows
+within about 40 ms instead of up to about 230 ms, at some cost to right-hand
+battery life while idle.
 
 ## Status LED
 
