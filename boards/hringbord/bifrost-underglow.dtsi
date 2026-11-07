@@ -11,7 +11,7 @@
     };
 
     /* RGB_EN drives Q2, which enables the Q1 high-side power switch. */
-    ext_power: external_power {
+    thumb_led_power: external_power {
         compatible = "zmk,ext-power-generic";
         control-gpios = <&gpio1 9 GPIO_ACTIVE_HIGH>;
         init-delay-ms = <1>;
