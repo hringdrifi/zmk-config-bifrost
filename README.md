@@ -126,10 +126,10 @@ X/Y movement is converted to horizontal/vertical scrolling at 1/16 sensitivity;
 the right-hand `N`, `M`, and comma positions act as left, middle, and right
 mouse buttons.
 
-Pointer movement automatically enables the `MOUSE` layer (layer 3): `J` is left
-click, `K` is middle click, and `L` is right click. It turns off after 1200 ms
+Pointer movement automatically enables the `MOUSE` layer (layer 3): `F`/`J` are
+left click, `D`/`K` are middle click, and `S`/`L` are right click. It turns off after 1200 ms
 without trackball input, or when another keyboard position is pressed. The
-three click positions are excluded from immediate cancellation. Activation
+six click positions are excluded from immediate cancellation. Activation
 requires 200 ms without keyboard input to avoid switching layers while typing.
 `LOWER` scrolling and `RAISE` navigation take precedence over auto activation.
 If Studio has saved an older keymap, set the layer 3 `J`/`K`/`L` bindings to
