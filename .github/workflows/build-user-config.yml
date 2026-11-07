@@ -164,8 +164,8 @@ jobs:
         with:
           name: rgb-autotest-inspection
           path: |
-            ${{ env.build_dir }}/zephyr/zephyr.elf
-            ${{ env.build_dir }}/zephyr/zephyr.map
+            ${{ env.build_dir }}/zephyr/*.elf
+            ${{ env.build_dir }}/zephyr/*.map
             ${{ env.build_dir }}/zephyr/zephyr.dts
 
       - name: Warn about building from main if build fails
