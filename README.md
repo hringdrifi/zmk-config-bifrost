@@ -105,9 +105,10 @@ LEDs on the right. Both halves use P0.27 for RGB data through SPI3 and P1.09
 right-hand trackball.
 
 Flash both halves to enable the lights. The initial setting is solid white at
-20% brightness, on at startup. The existing keymap is unchanged. RGB underglow
-behaviors (`&rgb_ug`) can be assigned in ZMK Studio for on/off, brightness, and
-color control. ZMK saves lighting changes on each half, so saved settings take
+20% brightness, on at startup. The keymap includes `RGB_TOG` on LOWER and
+`RGB_BRD`/`RGB_BRI` on RAISE for on/off and brightness control. Additional RGB
+underglow behaviors (`&rgb_ug`) can be assigned in ZMK Studio for color control.
+ZMK saves lighting changes on each half, so saved settings take
 precedence over the firmware's startup defaults.
 
 ## Trackball
