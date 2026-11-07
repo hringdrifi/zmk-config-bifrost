@@ -1,0 +1,6 @@
+config BIFROST_RGB_DIAGNOSTICS
+    bool "Bifrost thumb RGB signal diagnostics"
+    depends on SHELL && WS2812_STRIP_GPIO && ZMK_RGB_UNDERGLOW && ZMK_EXT_POWER
+    help
+      Add a USB shell command to inspect RGB state and hold the thumb LED
+      data line low or high for multimeter measurements. Disabled by default.

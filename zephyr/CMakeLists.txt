@@ -1,0 +1,2 @@
+zephyr_library()
+zephyr_library_sources_ifdef(CONFIG_BIFROST_RGB_DIAGNOSTICS rgb_diagnostics.c)
