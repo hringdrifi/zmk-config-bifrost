@@ -97,16 +97,43 @@ The physical layout is defined in `boards/hringbord/bifrost-layouts.dtsi`.
 Studio stores keymap changes on the keyboard, so later `.keymap` changes require
 **Restore Stock Settings** in Studio before they take effect.
 
+## Thumb RGB lighting
+
+The thumb boards have three WS2812B-2020 LEDs on the left and two WS2812C-2020
+LEDs on the right. Both halves use P0.27 for RGB data through SPI3 and P1.09
+(active high) to enable the LED power switch. SPI0 remains dedicated to the
+right-hand trackball.
+
+The MDBT50Q is powered through VDDH (+VSW), so the nRF52840 runs in
+high-voltage mode and its GPIO level is set by `UICR.REGOUT0`. The erased
+default is 1.8 V, which is too low for the LEDs (powered from +VSW, about
+3.7-4.7 V) to read their data input. On first boot the firmware programs
+`REGOUT0` to 3.3 V and resets once (`boards/hringbord/bifrost_regout0.c`). This
+setting persists in UICR and is only cleared by a full chip erase.
+
+Flash both halves to enable the lights. The initial setting is solid white at
+20% brightness, on at startup. The keymap includes RGB controls on LOWER and
+RAISE. Additional RGB underglow behaviors (`&rgb_ug`) can be assigned in ZMK
+Studio for color control. ZMK saves lighting changes on each half, so saved
+settings take precedence over the firmware's startup defaults.
+
+## Status LED
+
+The left main board's RGB status LED (red P0.20, green P0.24, blue P0.22,
+active low) stays off, then lights for one second when the output changes:
+white for USB, and blue, green, red, cyan, or magenta for Bluetooth profiles
+0-4. Changes during the first three seconds after startup are ignored.
+
 ## Trackball
 
 The right half uses the badjeff PMW3610 driver pinned in `config/west.yml`.
-It runs at 1000 CPI with X inverted and Y unchanged. SPI is limited to 125 kHz,
+It runs at 800 CPI with X inverted and Y unchanged. SPI is limited to 125 kHz,
 and the build applies a 15 us chip-select delay patch to meet sensor timing.
 The force-awake setting follows ZMK activity changes; a 1 second startup delay
 allows the sensor power to settle before initialization.
 
-The trackball moves the pointer on the base layer. The 1000 CPI sensor setting
-reduces both pointer and scroll movement by about 17% compared with 1200 CPI.
+The trackball moves the pointer on the base layer. The 800 CPI sensor setting
+reduces both pointer and scroll movement by 20% compared with 1000 CPI.
 While `LOWER` is held, its
 X/Y movement is converted to horizontal/vertical scrolling at 1/16 sensitivity;
 the right-hand `N`, `M`, and comma positions act as left, middle, and right
