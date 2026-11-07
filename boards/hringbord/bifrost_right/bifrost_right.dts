@@ -7,11 +7,6 @@
 #include <nordic/nrf52840_qiaa.dtsi>
 #include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
 #include "../bifrost.dtsi"
-#include "../bifrost-underglow.dtsi"
-
-&thumb_leds {
-    chain-length = <2>;
-};
 
 / {
     model = "Bifrost right";

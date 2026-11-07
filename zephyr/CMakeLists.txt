@@ -1,4 +1,0 @@
-zephyr_library()
-zephyr_library_include_directories(${APPLICATION_SOURCE_DIR}/include)
-zephyr_library_sources_ifdef(CONFIG_BIFROST_RGB_DIAGNOSTICS rgb_diagnostics.c)
-zephyr_library_sources_ifdef(CONFIG_BIFROST_RGB_AUTO_TEST rgb_auto_test.c)

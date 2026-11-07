@@ -3,7 +3,5 @@
 
 name: zmk-keyboard-bifrost
 build:
-  cmake: zephyr
-  kconfig: zephyr/Kconfig
   settings:
     board_root: .

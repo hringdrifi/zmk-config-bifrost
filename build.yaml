@@ -33,22 +33,3 @@ include:
   - board: bifrost_right
     shield: settings_reset
     artifact-name: bifrost_right_settings_reset
-  - board: bifrost_left
-    snippet: studio-rpc-usb-uart;zmk-usb-logging
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_SPI_LOG_LEVEL_DBG=y -DCONFIG_LED_STRIP_LOG_LEVEL_DBG=y
-    artifact-name: bifrost_left_rgb_debug
-  - board: bifrost_left
-    snippet: studio-rpc-usb-uart;zmk-usb-logging
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_WS2812_STRIP_SPI=n -DCONFIG_WS2812_STRIP_GPIO=y -DCONFIG_SPI=n -DCONFIG_LED_STRIP_LOG_LEVEL_DBG=y -DEXTRA_DTC_OVERLAY_FILE=/tmp/zmk-config/config/bifrost-rgb-gpio.overlay
-    artifact-name: bifrost_left_rgb_gpio_debug
-  - board: bifrost_left
-    snippet: studio-rpc-usb-uart;zmk-usb-logging
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_WS2812_STRIP_SPI=n -DCONFIG_WS2812_STRIP_GPIO=y -DCONFIG_SPI=n -DCONFIG_SHELL=y -DCONFIG_SHELL_BACKEND_SERIAL_CHECK_DTR=y -DCONFIG_BIFROST_RGB_DIAGNOSTICS=y -DCONFIG_LOG_BACKEND_UART=n -DEXTRA_DTC_OVERLAY_FILE=/tmp/zmk-config/config/bifrost-rgb-gpio.overlay
-    artifact-name: bifrost_left_rgb_meter_debug
-  - board: bifrost_left
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_WS2812_STRIP_SPI=n -DCONFIG_WS2812_STRIP_GPIO=y -DCONFIG_SPI=n -DCONFIG_BIFROST_RGB_AUTO_TEST=y -DEXTRA_DTC_OVERLAY_FILE=/tmp/zmk-config/config/bifrost-rgb-gpio.overlay
-    artifact-name: bifrost_left_rgb_autotest
-  - board: bifrost_right
-    cmake-args: -DCONFIG_WS2812_STRIP_SPI=n -DCONFIG_WS2812_STRIP_GPIO=y -DCONFIG_BIFROST_RGB_AUTO_TEST=y -DEXTRA_DTC_OVERLAY_FILE=/tmp/zmk-config/config/bifrost-rgb-gpio-right.overlay
-    artifact-name: bifrost_right_rgb_autotest
