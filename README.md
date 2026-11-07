@@ -117,6 +117,11 @@ RAISE. Additional RGB underglow behaviors (`&rgb_ug`) can be assigned in ZMK
 Studio for color control. ZMK saves lighting changes on each half, so saved
 settings take precedence over the firmware's startup defaults.
 
+While the `MOUSE` layer is active, the thumb lights on both halves turn green
+(keeping the current brightness) and return to the previous colour when the
+layer turns off. This uses `RGB_COLOR_HSB`, which does not trigger a settings
+save, so entering and leaving the layer causes no flash writes.
+
 ## Status LED
 
 The left main board's RGB status LED (red P0.20, green P0.24, blue P0.22,
