@@ -1,0 +1,6 @@
+/* Right thumb board: the same signal and power pins, with two LEDs. */
+#include "bifrost-rgb-gpio.overlay"
+
+&thumb_gpio_leds {
+    chain-length = <2>;
+};

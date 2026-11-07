@@ -49,3 +49,6 @@ include:
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_WS2812_STRIP_SPI=n -DCONFIG_WS2812_STRIP_GPIO=y -DCONFIG_SPI=n -DCONFIG_BIFROST_RGB_AUTO_TEST=y -DEXTRA_DTC_OVERLAY_FILE=/tmp/zmk-config/config/bifrost-rgb-gpio.overlay
     artifact-name: bifrost_left_rgb_autotest
+  - board: bifrost_right
+    cmake-args: -DCONFIG_WS2812_STRIP_SPI=n -DCONFIG_WS2812_STRIP_GPIO=y -DCONFIG_BIFROST_RGB_AUTO_TEST=y -DEXTRA_DTC_OVERLAY_FILE=/tmp/zmk-config/config/bifrost-rgb-gpio-right.overlay
+    artifact-name: bifrost_right_rgb_autotest
