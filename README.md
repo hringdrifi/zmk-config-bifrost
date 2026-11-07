@@ -117,6 +117,13 @@ RAISE. Additional RGB underglow behaviors (`&rgb_ug`) can be assigned in ZMK
 Studio for color control. ZMK saves lighting changes on each half, so saved
 settings take precedence over the firmware's startup defaults.
 
+## Status LED
+
+The left main board's RGB status LED (red P0.20, green P0.24, blue P0.22,
+active low) stays off, then lights for one second when the output changes:
+white for USB, and blue, green, red, cyan, or magenta for Bluetooth profiles
+0-4. Changes during the first three seconds after startup are ignored.
+
 ## Trackball
 
 The right half uses the badjeff PMW3610 driver pinned in `config/west.yml`.
