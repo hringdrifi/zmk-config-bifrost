@@ -60,7 +60,7 @@
         layer_1 {
             display-name = "LOWER";
             bindings = <
-&bt BT_SEL 0  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp N0  &kp EQUAL  &trans  &bt BT_SEL 1  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp DOUBLE_QUOTES  &bt BT_SEL 2  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans  &kp PG_UP  &trans  &bt BT_CLR  &trans  &trans  &rgb_ug RGB_TOG  &trans  &bootloader  &kp DEL  &studio_unlock  &kp HOME  &kp PG_DN  &kp END
+&bt BT_SEL 0  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp N0  &kp EQUAL  &trans  &bt BT_SEL 1  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp DOUBLE_QUOTES  &bt BT_SEL 2  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_UP  &trans  &bt BT_CLR  &trans  &trans  &rgb_ug RGB_TOG  &trans  &bootloader  &kp DEL  &studio_unlock  &kp HOME  &kp PG_DN  &kp END
             >;
         };
 
@@ -69,7 +69,7 @@
         layer_2 {
             display-name = "RAISE";
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &kp INSERT  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp DEL  &trans  &trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(A)  &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans  &rgb_ug RGB_HUD  &rgb_ug RGB_BRI  &rgb_ug RGB_HUI  &trans  &trans  &trans  &trans  &studio_unlock  &trans  &bootloader  &trans  &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPI
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &kp INSERT  &trans  &trans  &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES  &trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(A)  &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans  &rgb_ug RGB_HUD  &rgb_ug RGB_BRI  &rgb_ug RGB_HUI  &trans  &trans  &trans  &trans  &studio_unlock  &trans  &bootloader  &trans  &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPI
             >;
         };
 
