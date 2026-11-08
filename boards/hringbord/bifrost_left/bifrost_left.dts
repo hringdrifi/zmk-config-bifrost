@@ -96,7 +96,7 @@
     };
 
     raise_pointer {
-        layers = <2>; /* Keep RAISE navigation bindings during pointer movement. */
+        layers = <2>; /* Keep RAISE active (no auto MOUSE layer) during pointer movement. */
     };
 };
 

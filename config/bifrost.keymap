@@ -13,6 +13,7 @@
 #define LOWER 1
 #define RAISE 2
 #define MOUSE 3
+#define SYSTEM 4
 
 / {
     /* Windows JIS host: emit the keys that produce US-layout symbols. */
@@ -41,6 +42,22 @@
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        us_grave: us_grave {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LEFT_BRACKET)>, <&kp LS(EQUAL)>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        us_quote: us_quote {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N7)>, <&kp LS(N2)>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
@@ -55,23 +72,28 @@
             >;
         };
 
-        /* Lower: numbers, symbols, and right-hand pointing controls. */
+        /*
+         * Lower: symbols (JIS keycodes for US-layout characters), navigation,
+         * editing shortcuts, and IME toggle (Alt+Hankaku/Zenkaku).
+         */
 
         layer_1 {
             display-name = "LOWER";
             bindings = <
-&kp TILDE  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT  &trans  &trans  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp PRINTSCREEN  &trans  &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp HOME  &kp END  &kp PG_UP  &kp PAGE_DOWN  &kp SINGLE_QUOTE  &trans  &trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(TILDE)  &trans  &trans  &trans  &trans  &bootloader  &kp DEL  &studio_unlock  &trans  &trans  &trans
+&us_grave  &kp EXCLAMATION  &kp LEFT_BRACKET  &kp HASH  &kp DOLLAR  &kp PERCENT  &trans  &trans  &kp LS(RIGHT_BRACKET)  &kp LS(NON_US_HASH)  &kp RIGHT_BRACKET  &kp NON_US_HASH  &kp PRINTSCREEN  &trans  &kp EQUAL  &kp LS(N6)  &kp LS(SINGLE_QUOTE)  &kp LS(N8)  &kp LS(N9)  &kp HOME  &kp END  &kp PG_UP  &kp PAGE_DOWN  &us_quote  &trans  &trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(GRAVE)  &trans  &trans  &trans  &trans  &bootloader  &kp DEL  &studio_unlock  &trans  &trans  &trans
             >;
         };
 
-        /* Raise: function keys, navigation, and editing shortcuts. */
+        /* Raise: function keys, numbers, and arithmetic symbols. */
 
         layer_2 {
             display-name = "RAISE";
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &trans  &kp SLASH  &trans  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp EQUAL  &trans  &trans  &trans  &trans  &kp F11  &kp F12  &kp PLUS  &kp ASTERISK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &studio_unlock  &trans  &bootloader  &trans  &trans  &trans  &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &trans  &kp SLASH  &trans  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp LS(MINUS)  &trans  &trans  &trans  &trans  &kp F11  &kp F12  &kp LS(SEMICOLON)  &kp LS(SINGLE_QUOTE)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &studio_unlock  &trans  &bootloader  &trans  &trans  &trans  &trans
             >;
         };
+
+        /* Mouse: auto-activated by trackball movement; clicks on home row. */
 
         layer_3 {
             display-name = "MOUSE";
@@ -80,12 +102,13 @@
             >;
         };
 
+        /* System: Bluetooth profiles, media volume, and underglow controls. */
+
         layer_4 {
+            display-name = "SYSTEM";
             bindings = <
 &bt BT_SEL 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 1  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 2  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans  &trans  &trans  &bt BT_CLR  &trans  &trans  &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_HUI  &trans  &trans  &trans
             >;
-
-            label = "SYSTEM";
         };
     };
 };
