@@ -60,7 +60,7 @@
         layer_1 {
             display-name = "LOWER";
             bindings = <
-&bt BT_SEL 0  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp EQUAL  &trans  &bt BT_SEL 1  &kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp LS(NUMBER_0)  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp DOUBLE_QUOTES  &bt BT_SEL 2  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_UP  &trans  &bt BT_CLR  &trans  &trans  &trans  &trans  &bootloader  &kp DEL  &studio_unlock  &kp HOME  &kp PG_DN  &kp END
+&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT  &trans  &trans  &trans  &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans  &trans  &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans  &trans  &trans  &trans  &kp SINGLE_QUOTE  &trans  &trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bootloader  &kp DEL  &studio_unlock  &trans  &trans  &trans
             >;
         };
 
@@ -69,7 +69,7 @@
         layer_2 {
             display-name = "RAISE";
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &kp INSERT  &trans  &trans  &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp DOUBLE_QUOTES  &trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(A)  &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans  &rgb_ug RGB_HUD  &rgb_ug RGB_BRI  &rgb_ug RGB_HUI  &trans  &trans  &trans  &trans  &studio_unlock  &trans  &bootloader  &trans  &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPI
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &trans  &kp SLASH  &trans  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp EQUAL  &trans  &trans  &trans  &trans  &kp F11  &kp F12  &kp PLUS  &kp ASTERISK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &studio_unlock  &trans  &bootloader  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -78,6 +78,14 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
+        };
+
+        layer_4 {
+            bindings = <
+&bt BT_SEL 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 1  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 2  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans  &trans  &trans  &bt BT_CLR  &trans  &trans  &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_HUI  &trans  &trans  &trans
+            >;
+
+            label = "SYSTEM";
         };
     };
 };
