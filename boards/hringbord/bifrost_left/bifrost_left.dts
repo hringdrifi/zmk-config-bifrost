@@ -7,6 +7,7 @@
 #include <nordic/nrf52840_qiaa.dtsi>
 #include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
 #include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 #include "../bifrost.dtsi"
 #include "../bifrost-underglow.dtsi"
 
@@ -96,7 +97,8 @@
 
     lower_scroll {
         layers = <1>; /* LOWER */
-        input-processors = <&zip_xy_scaler 1 16>, <&zip_xy_to_scroll_mapper>;
+        input-processors = <&zip_xy_scaler 1 16>, <&zip_xy_to_scroll_mapper>,
+                           <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
     };
 
     raise_pointer {
